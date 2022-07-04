@@ -39,6 +39,7 @@ console.log(getMassive(cities,3));
 //После префикса автоматически добавляется пробел.
 
 const names= ['john', 'smith', 'karl'];
+
 function addPrefix(prefix,newMass) {
     newMass=[];
     for (let i = 0; i < names.length; i++) {
@@ -49,4 +50,16 @@ function addPrefix(prefix,newMass) {
 }
 const newName = addPrefix('Mr', names);
 console.log(newName);
-console.log(names);
+
+// Реализуйте и экспортируйте функцию reverse(), 
+// которая принимает на вход массив и располагает
+// элементы внутри него в обратном порядке.
+
+function addRevers(mass) {
+    mass = names.reverse()
+    return mass;
+}
+
+newMass = addRevers();
+console.log(newMass);
+
