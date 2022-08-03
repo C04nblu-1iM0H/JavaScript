@@ -54,7 +54,7 @@ let binarySearchName = (coll, el) => {
         let middle = Math.floor((start + end) / 2);//проверяем средний элемент
 
         if(coll[middle].lasname === el) return coll[middle].phone; //если нашли имя в массиве и оно равно имени в аргументе, то выводим номер телефона этого человека
-        let human = coll[middle].lasname  //примваиваю перменной имя человека 
+        let human = coll[middle].lasname  //приcваиваю перменной имя человека 
         if(human.charCodeAt(start) > el.charCodeAt(start)){//сравниваю первые символы по unicode
             end = middle - 1; //если много, то опускаюсь вниз по списку
         }else{
