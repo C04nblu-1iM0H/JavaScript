@@ -35,3 +35,13 @@ let getMidpointOfSegment = (segment) => {
 } 
 
 console.log(getMidpointOfSegment(segment)); // (1.5, 1)
+
+module.exports = {
+    makeDecartPoint,
+    getX,
+    getY,
+    makeSegment,
+    getBeginPoint,
+    getEndPoint,
+    getMidpointOfSegment
+}
