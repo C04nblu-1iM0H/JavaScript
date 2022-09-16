@@ -9,13 +9,14 @@ let makeDecartPoint = (x,y) => {
 };
  
 // point хранит в себе данные в полярной системе координат
-const point = makeDecartPoint(x, y);
+ const point = makeDecartPoint(x, y);
+ console.log(point);
 
-let getAngle = (point) =>{
+ let getAngle = (point) =>{
     return point['angle'];
 }
 
-let getRadius = (point) =>{
+ let getRadius = (point) =>{
     return point['radius'];
 }
 
@@ -24,7 +25,8 @@ console.log(getRadius(point));
 
 let getX = (point) =>{
     return Math.round(getRadius(point) * Math.cos(getAngle(point)));
-} 
+}
+
 let getY = (point) =>{
     return Math.round(getRadius(point) * Math.sin(getAngle(point)));
 }; 
@@ -32,3 +34,11 @@ let getY = (point) =>{
 // Здесь происходит преобразование из полярной в декартову
 console.log(getX(point));// 4
 console.log(getY(point));// 8
+
+module.exports = {
+    makeDecartPoint,
+    getAngle,
+    getRadius,
+    getX,
+    getY
+}
