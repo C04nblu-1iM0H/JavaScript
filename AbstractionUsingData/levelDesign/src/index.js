@@ -74,3 +74,13 @@ console.log('getWidth -', getWidth(rectangle));
 console.log('getHeight -', getHeight(rectangle));
 console.log('quadrant -',quadrant(point));
 console.log('containsOrigin -',containsOrigin(rectangle));
+
+module.exports ={
+    makeDecartPoint,
+    makeRectangle,
+    getStartPoint,
+    getWidth,
+    getHeight,
+    quadrant,
+    containsOrigin
+}
