@@ -4,38 +4,38 @@
 //2.Цепочка ключей (массив), по которой ведётся поиск значения
 //В случае, когда добраться до значения невозможно, возвращается null.
 
-// const data = {
-//     user: 'ubuntu',
-//     hosts: {
-//       0: {
-//         name: 'web1',
-//       },
-//       1: {
-//         name: 'web2',
-//         null: 3,
-//         active: false,
-//       },
-//     },
-//   };
+const data1 = {
+    user: 'ubuntu',
+    hosts: {
+      0: {
+        name: 'web1',
+      },
+      1: {
+        name: 'web2',
+        null: 3,
+        active: false,
+      },
+    },
+  };
 
-// let get = (obj, expectedKey) => {
-//     let value = obj; //копирнули объект
-//     for (let key of expectedKey) {
-//         value = value[key];
-//         if(value ===undefined) {
-//             return null;
-//         }
-//     }
-//     return value;
-// }
+let get = (obj, expectedKey) => {
+    let value = obj; //копирнули объект
+    for (let key of expectedKey) {
+        value = value[key];
+        if(value ===undefined) {
+            return null;
+        }
+    }
+    return value;
+}
    
-// console.log(get(data, ['undefined']));// null
-// console.log(get(data, ['user'])); // 'ubuntu'
-// console.log(get(data, ['user', 'ubuntu']));// null
-// console.log(get(data, ['hosts', 0])); // { name: 'web1' }
-// console.log(get(data, ['hosts', 1, 'name']));// 'web2'
-// console.log(get(data, ['hosts', 1, null]));// '3'
-// console.log(get(data, ['hosts', 1, 'active']));// false
+console.log(get(data1, ['undefined']));// null
+console.log(get(data1, ['user'])); // 'ubuntu'
+console.log(get(data1, ['user', 'ubuntu']));// null
+console.log(get(data1, ['hosts', 0])); // { name: 'web1' }
+console.log(get(data1, ['hosts', 1, 'name']));// 'web2'
+console.log(get(data1, ['hosts', 1, null]));// '3'
+console.log(get(data1, ['hosts', 1, 'active']));// false
   
 
 /********************************************************************************************/
@@ -51,50 +51,50 @@
 // 3.Данные, которые нужно сливать в исходный объект
 //В случае, когда список ключей пустой, нужно сливать все данные полностью.
 
-// const company = {
-//     name: null,
-//     state: 'moderating',
-//   };
+const company = {
+    name: null,
+    state: 'moderating',
+  };
    
-//   const data = {
-//     name: 'Hexlet',
-//     state: 'published',
-//   };
+  const data = {
+    name: 'Hexlet',
+    state: 'published',
+  };
    
-//   // Вызовы ниже нужно рассматривать как независимые
+  // Вызовы ниже нужно рассматривать как независимые
 
-//   let fill = (sourceObj, expectedKey, obj) =>{
-//     let result = {};//создал пустой объект
+  let fill = (sourceObj, expectedKey, obj) =>{
+    let result = {};//создал пустой объект
 
-//     if(Object.keys(obj).length === 0) return null;//проверил не пустой ли объект из 
-//                                                  //которого буду брать ключи со значениями
-//     if(expectedKey.length === 0){//если ключа нет в параметрах, значит я беру все данные из объуекта исливаю их с другим объектам
-//         Object.assign(sourceObj, obj);//Функция Object.assign() берёт объект, 
-//                                       //переданный первым параметром, и переносит в него всё из объектов, переданных остальными параметрами.
-//     }else{//иначе если ключ есть
-//         let entri = Object.entries(obj);//беру объект для слияния разбиваю его на массив ключ,значение
-//         for (const [keys, value] of entri) {//перебераю [keys, value] через цикл
-//             for (let key of expectedKey) {// перебераю ключ, использую данный цикл из за того что в параметре может быть несколько ключей
-//                 if(keys == key){//сравниваю ключи, если они равны, то 
-//                     result[key] = value;//присваиваю значения в пустой объект
-//                 }
-//             }
-//         }
-//         Object.assign(sourceObj, result);// после этого делаю слияния полученных данных из obj в result и заменяю на данные из sourceObj, тоесть массива company.
-//     }
+    if(Object.keys(obj).length === 0) return null;//проверил не пустой ли объект из 
+                                                 //которого буду брать ключи со значениями
+    if(expectedKey.length === 0){//если ключа нет в параметрах, значит я беру все данные из объуекта исливаю их с другим объектам
+        Object.assign(sourceObj, obj);//Функция Object.assign() берёт объект, 
+                                      //переданный первым параметром, и переносит в него всё из объектов, переданных остальными параметрами.
+    }else{//иначе если ключ есть
+        let entri = Object.entries(obj);//беру объект для слияния разбиваю его на массив ключ,значение
+        for (const [keys, value] of entri) {//перебераю [keys, value] через цикл
+            for (let key of expectedKey) {// перебераю ключ, использую данный цикл из за того что в параметре может быть несколько ключей
+                if(keys == key){//сравниваю ключи, если они равны, то 
+                    result[key] = value;//присваиваю значения в пустой объект
+                }
+            }
+        }
+        Object.assign(sourceObj, result);// после этого делаю слияния полученных данных из obj в result и заменяю на данные из sourceObj, тоесть массива company.
+    }
     
-//     return sourceObj
+    return sourceObj
     
-//   }
+  }
    
-// console.log(fill(company, ['name',], data));
-//   // {
-//   //   name: 'Hexlet',
-//   //   state: 'moderating',
-//   // }
+console.log(fill(company, ['name',], data));
+  // {
+  //   name: 'Hexlet',
+  //   state: 'moderating',
+  // }
 
-// console.log(fill(company, [], data));
-//   // {
-//   //   name: 'Hexlet',
-//   //   state: 'published',
-//   // }
+console.log(fill(company, [], data));
+  // {
+  //   name: 'Hexlet',
+  //   state: 'published',
+  // }

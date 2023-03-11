@@ -6,26 +6,26 @@
 //При проверке учитывается количество символов, нужных для составления слова, 
 //и не учитывается их регистр.
 
-// let scrabble = (prop, str) => {
-// let arrProp = prop.split(''); //при помощи метода split() делаю из строки массив символов
-// let arrStr = str.split('');
-// let ln1 = arrProp.length,     //создаю переменную и присваиваю ей длину первого массива
-//     ln2 = arrStr.length,     // и второго массива
-//     cache;//создаю переменную куда буду записывать символы
-// if( ln1 < ln2 ) return false; // делаю проверку если первый переданный параметр меньше длинной чем второй,
-//                               //  значит в таком наборе символов я не соберу заданное слово 
-// for (let i = 0; i < ln1; i++) {//создаю цикл, который будет перебирать 1 массив
-//   cache = arrProp[i];          //записываю каждый символ в переменную cache
-//   for (let j = 0; j < ln1; j++) {//создаю цикл, который будет перебирать 2 массив
-//     if(cache === arrStr[j]){  // если перебираемое символ есть в словое 
-//       return true;            //возвращаю true
-//     }
-//   }
-// }
-// return false;//если нет, то возвращает false
-// }
-//console.log(scrabble('rkqodlw', 'world'));
-// console.log(scrabble('avj', 'java'));
-// console.log(scrabble('avjafff', 'java'));
-// console.log(scrabble('', 'hexlet'));
-// console.log(scrabble('scriptingjava', 'JavaScript'));
+let scrabble = (prop, str) => {
+let arrProp = prop.split(''); //при помощи метода split() делаю из строки массив символов
+let arrStr = str.split('');
+let ln1 = arrProp.length,     //создаю переменную и присваиваю ей длину первого массива
+    ln2 = arrStr.length,     // и второго массива
+    cache;//создаю переменную куда буду записывать символы
+if( ln1 < ln2 ) return false; // делаю проверку если первый переданный параметр меньше длинной чем второй,
+                              //  значит в таком наборе символов я не соберу заданное слово 
+for (let i = 0; i < ln1; i++) {//создаю цикл, который будет перебирать 1 массив
+  cache = arrProp[i];          //записываю каждый символ в переменную cache
+  for (let j = 0; j < ln1; j++) {//создаю цикл, который будет перебирать 2 массив
+    if(cache === arrStr[j]){  // если перебираемое символ есть в словое 
+      return true;            //возвращаю true
+    }
+  }
+}
+return false;//если нет, то возвращает false
+}
+console.log(scrabble('rkqodlw', 'world'));
+console.log(scrabble('avj', 'java'));
+console.log(scrabble('avjafff', 'java'));
+console.log(scrabble('', 'hexlet'));
+console.log(scrabble('scriptingjava', 'JavaScript'));

@@ -2,29 +2,29 @@
 //извлекает их имена, сортирует в алфавитном порядке и возвращает 
 //отсортированный список имен.
 
-// const users = [
-//   { name: 'Bronn', gender: 'male', birthday: '1973-03-23' },
-//   { name: 'Reigar', gender: 'male', birthday: '1973-11-03' },
-//   { name: 'Eiegon', gender: 'male', birthday: '1963-11-03' },
-//   { name: 'Sansa', gender: 'female', birthday: '2012-11-03' },
-// ];
+const users = [
+  { name: 'Bronn', gender: 'male', birthday: '1973-03-23' },
+  { name: 'Reigar', gender: 'male', birthday: '1973-11-03' },
+  { name: 'Eiegon', gender: 'male', birthday: '1963-11-03' },
+  { name: 'Sansa', gender: 'female', birthday: '2012-11-03' },
+];
 
-// let getSortedNames = (obj) => {
-//   const result = [];            //создание пустого массива
-//   if(typeof obj === 'object'){ //проверяем является ли вхождение объектом
-//     for (const item of obj) { //записываем  каждый объект в переменную item
-//       const {name} = item;    //при помощи деструктуризации извлекаем name 
-//       result.push(name);     // при помощи метода push записываем name в пустой массив
-//       result.sort();        // простой способ сортировки в алфавитном порядке
-//     }
-//   }else{
-//     return null;
-//   }
-//   return result;
-// }
+let getSortedNames = (obj) => {
+  const result = [];            //создание пустого массива
+  if(typeof obj === 'object'){ //проверяем является ли вхождение объектом
+    for (const item of obj) { //записываем  каждый объект в переменную item
+      const {name} = item;    //при помощи деструктуризации извлекаем name 
+      result.push(name);     // при помощи метода push записываем name в пустой массив
+      result.sort();        // простой способ сортировки в алфавитном порядке
+    }
+  }else{
+    return null;
+  }
+  return result;
+}
 
-// const getResult = getSortedNames(users);
-// console.log(getResult);
+const getResult = getSortedNames(users);
+console.log(getResult);
 
 /********************************************************************************************/
 /********************************************************************************************/
@@ -40,16 +40,16 @@
 //Если при конструировании объекта попадаются совпадающие ключи, 
 //то берётся значение из последнего массива-пары:
 
-// const mass = [
-//   ['cat', 5], ['dog', 6], ['cat', 11]
-// ];
+const mass = [
+  ['cat', 5], ['dog', 6], ['cat', 11]
+];
 
 
-// let fromPairs = (coll) =>{
-//   if(coll.length === 0) return [];//проверяем на то что массив не пустой   
-//   const resObj = Object.fromEntries(entries);//преобразуем многомерный массив в объект
-//   //но использование такого метода ведёт за собой потерей данных 
-//   return resObj;
-// }
+let fromPairs = (coll) =>{
+  if(coll.length === 0) return [];//проверяем на то что массив не пустой   
+  const resObj = Object.fromEntries(entries);//преобразуем многомерный массив в объект
+  //но использование такого метода ведёт за собой потерей данных 
+  return resObj;
+}
 
-// console.log(fromPairs(mass));
+console.log(fromPairs(mass));

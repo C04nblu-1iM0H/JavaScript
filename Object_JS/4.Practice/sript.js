@@ -4,45 +4,45 @@
 //Если значением какого-то свойства является объект, 
 //то нужно рекурсивно запустить реализованную функцию.
 
-// const data = {
-//     key: 'value',
-//     key2: {
-//       key: 'innerValue',
-//       innerKey: {
-//         anotherKey: 'anotherValue',
-//       },
-//     },
-//   };
+const data = {
+    key: 'value',
+    key2: {
+      key: 'innerValue',
+      innerKey: {
+        anotherKey: 'anotherValue',
+      },
+    },
+  };
 
-//   let cloneDeep = (obj) => {
-//     let cloneObj = {};//создадим новый объект
+  let cloneDeep = (obj) => {
+    let cloneObj = {};//создадим новый объект
     
-//     const keys = Object.keys(obj)//получим все ключи исходного объекта.
-//     //console.log('ключи исходного объекта - ',keys);
-//     //копируем все эти ключи в конечный объект.
-//     keys.forEach(key => {
-//         //Проверка того, является ли текущее значение объектом
-//         console.log('obj[key] - ',obj[key]);
-//         if (typeof obj[key] === "object") {
-//             // Рекурсивный вызов нашей функции для текущего значения
-//             // console.log('obj[key] === object',cloneDeep(obj[key]));
-//             cloneObj[key] = cloneDeep(obj[key]);
-//         } else {
-//             // Прямое присвоение значения
-//             // console.log('else = obj[key] - ',obj[key]);
-//             cloneObj[key] = obj[key];
-//         }
-//     });
-//     return cloneObj;
-//   }
+    const keys = Object.keys(obj)//получим все ключи исходного объекта.
+    //console.log('ключи исходного объекта - ',keys);
+    //копируем все эти ключи в конечный объект.
+    keys.forEach(key => {
+        //Проверка того, является ли текущее значение объектом
+        console.log('obj[key] - ',obj[key]);
+        if (typeof obj[key] === "object") {
+            // Рекурсивный вызов нашей функции для текущего значения
+            // console.log('obj[key] === object',cloneDeep(obj[key]));
+            cloneObj[key] = cloneDeep(obj[key]);
+        } else {
+            // Прямое присвоение значения
+            // console.log('else = obj[key] - ',obj[key]);
+            cloneObj[key] = obj[key];
+        }
+    });
+    return cloneObj;
+  }
    
 
   //result имеет такую же структуру, как и data
-//   const result = cloneDeep(data);
-//   console.log(result);
-  // Но внутри другие объекты
-//   console.log(result.key2 !== data.key2);//true
-//   console.log(result.key2.innerKey !== data.key2.innerKey);//true
+  const result = cloneDeep(data);
+  console.log(result);
+  //Но внутри другие объекты
+  console.log(result.key2 !== data.key2);//true
+  console.log(result.key2.innerKey !== data.key2.innerKey);//true
   
 /********************************************************************************************/
 /********************************************************************************************/
@@ -60,30 +60,30 @@
 //createdAt – текущая дата
 //Используйте спред-оператор для слияния данных внутри и возврата нового объекта.
 
-// let make = (objName, features, state = 'moderating') => {// в параметрах прописываю переменную по умолчанию
-//   let name = objName;                           //создаю переменную name и присваиваю значение переменной objName
-//   let date = new Date().toLocaleDateString(); //создаю перменную и присваиваю значение даты 
-//   let createdAt = date;                    //создаю переменную и переприсваиваю значение.
-//   const trialObj = {name,state,createdAt}  //создаю объект и устанавливаю туда ключи+значения
-//   if(typeof features === 'object'){       //проверяю является ли второй параметр переданный в функцию объектом
-//     const result = {...trialObj,...features};//если является то я при помощи оператора spread
-//                                             // коротко сказать вставляю данные сначала справа features, а потом с лева trialObj
-//     return result;
-//   }else{                                    //иначе если у меня нет воторого параметра, 
-//     const result = {...trialObj};           //просто записываю стандартные данные 
-//     return result;
-//   }
-// }
-//const company = make('Hexlet');
-//console.log(company);
+let make = (objName, features, state = 'moderating') => {// в параметрах прописываю переменную по умолчанию
+  let name = objName;                           //создаю переменную name и присваиваю значение переменной objName
+  let date = new Date().toLocaleDateString(); //создаю перменную и присваиваю значение даты 
+  let createdAt = date;                    //создаю переменную и переприсваиваю значение.
+  const trialObj = {name,state,createdAt}  //создаю объект и устанавливаю туда ключи+значения
+  if(typeof features === 'object'){       //проверяю является ли второй параметр переданный в функцию объектом
+    const result = {...trialObj,...features};//если является то я при помощи оператора spread
+                                            // коротко сказать вставляю данные сначала справа features, а потом с лева trialObj
+    return result;
+  }else{                                    //иначе если у меня нет воторого параметра, 
+    const result = {...trialObj};           //просто записываю стандартные данные 
+    return result;
+  }
+}
+const company = make('Hexlet');
+console.log(company);
 // {
 //   name: 'Hexlet',
 //   state: 'moderating',
 //   createdAt: <тут текущая дата>
 // }
  
-//const company = make('Hexlet', { website: 'hexlet.io', state: 'published' });
-//console.log(company);
+const company2 = make('Hexlet', { website: 'hexlet.io', state: 'published' });
+console.log(company2);
 // {
 //   name: 'Hexlet',
 //   website: 'hexlet.io',
